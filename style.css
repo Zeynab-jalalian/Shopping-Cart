@@ -47,3 +47,49 @@ header{
     align-items: center;
     visibility: hidden;
 }
+.shop{
+    padding: 100px 9% 30px;
+}
+.section-title{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.product-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 30px;
+}
+.product-content .product-box .img-box{
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.img-box img{
+    width: 100%;
+    transition: 0.5s;
+}
+.img-box:hover img{
+    transform: scale(1.1);
+}
+.product-title{
+    font-size: 20px;
+    margin-top: 10px;
+}
+.product-box .price-and-cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.price-and-cart .price{
+    font-size: 18px;
+    font-weight: 500;
+}
+.price-and-cart i{
+    padding: 10px;
+    background: #e35f26;
+    border-radius: 6px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
