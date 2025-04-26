@@ -47,7 +47,7 @@ header{
     align-items: center;
     visibility: hidden;
 }
-.shop{
+#shop{
     padding: 100px 9% 30px;
 }
 .section-title{
@@ -98,7 +98,7 @@ header{
 .cart{
     position: fixed;
     top: 0;
-    right: 0;
+    right: -100%;
     width: 360px;
     height: 100%;
     background: #fff;
