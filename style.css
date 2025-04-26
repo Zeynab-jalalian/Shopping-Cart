@@ -106,6 +106,7 @@ header{
     padding: 65px 20px 40px;
     z-index: 100;
     overflow: auto;
+    transition: 0.5s;
 }
 .cart-title{
     text-align: center;
@@ -193,4 +194,7 @@ header{
     right: 15px;
     font-size: 35px;
     cursor: pointer;
+}
+.cart.active{
+ right: 0;
 }
