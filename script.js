@@ -107,3 +107,16 @@ const updateCartCount=change=>{
         cartItemCountChange.textContent="";
     }
 }
+const buyNowButton=document.querySelector(".btn-buy");
+buyNowButton.addEventListener("click",()=>{
+    const cartBoxes=cartContent.querySelectorAll(".cart-box");
+    if(cartBoxes.length===0){
+  alert("Yor cart is empty. Please add items to your cart before buying.");
+  return;
+    }
+   cartBoxes.forEach(cartBox=>cartBox.remove());
+   cartItemCount=0;
+   updateCartCount(0);
+   updateTotalPrice();
+   alert("Thank you for purchase!")
+})
