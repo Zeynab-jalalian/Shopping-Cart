@@ -55,6 +55,7 @@ const addToCart = productBox => {
     cartContent.appendChild(cartBox);
     cartBox.querySelector(".cart-remove").addEventListener("click",()=>{
         cartBox.remove();
+        updateTotalPrice();
     })
     cartBox.querySelector(".cart-quantity").addEventListener("click",event=>{
         const numberElement=cartBox.querySelector(".number");
@@ -72,6 +73,22 @@ const addToCart = productBox => {
                 decrementButton.style.color="#333";
             }
         numberElement.textContent=quantity;
+        updateTotalPrice();
     })
+    updateTotalPrice();
 };
 
+
+const updateTotalPrice=()=>{
+    const totalPriceElement=document.querySelector(".total-price");
+    const cartBoxes=cartContent.querySelectorAll(".cart-box");
+    let total=0;
+    cartBoxes.forEach(cartBox=>{
+        const priceElement=cartBox.querySelector(".cart-price");
+        const quantityElement=cartBox.querySelector(".number");
+        const price=priceElement.textContent.replace("$","");
+        const quantity=quantityElement.textContent;
+        total+=price*quantity;
+    });
+    totalPriceElement.textContent=`$${total}`
+}
