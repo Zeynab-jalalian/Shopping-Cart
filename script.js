@@ -55,6 +55,7 @@ const addToCart = productBox => {
     cartContent.appendChild(cartBox);
     cartBox.querySelector(".cart-remove").addEventListener("click",()=>{
         cartBox.remove();
+        updateCartCount(-1);
         updateTotalPrice();
     })
     cartBox.querySelector(".cart-quantity").addEventListener("click",event=>{
@@ -75,6 +76,7 @@ const addToCart = productBox => {
         numberElement.textContent=quantity;
         updateTotalPrice();
     })
+    updateCartCount(1);
     updateTotalPrice();
 };
 
@@ -91,4 +93,17 @@ const updateTotalPrice=()=>{
         total+=price*quantity;
     });
     totalPriceElement.textContent=`$${total}`
+}
+
+let cartItemCount=0;
+const updateCartCount=change=>{
+    const cartItemCountChange=document.querySelector(".cart-item-count");
+    cartItemCount+=change;
+    if(cartItemCount>0){
+        cartItemCountChange.style.visibility="visible";
+        cartItemCountChange.textContent=cartItemCount;
+    }else{
+        cartItemCountChange.style.visibility="hidden";
+        cartItemCountChange.textContent="";
+    }
 }
